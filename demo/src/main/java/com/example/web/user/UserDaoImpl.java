@@ -1,7 +1,5 @@
 package com.example.web.user;
 
-import java.util.List;
-
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -14,15 +12,15 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
-	public List<User> selectAll() {
+	public void selectAll() {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
 
 	@Override
-	public User selectOne(String userid) {
+	public void selectOne(String employNumber) {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
 
 	@Override
@@ -32,7 +30,7 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
-	public void delete(User user) {
+	public void remove(User user) {
 		// TODO Auto-generated method stub
 		
 	}
