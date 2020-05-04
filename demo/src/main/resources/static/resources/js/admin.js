@@ -10,7 +10,7 @@ admin = (() => {
 		setContentView()
 		$.getJSON('/users', d => {
 			$.each(d, (i, j) => {
-				$(`<tr>
+				$(`<tr> 
                         	<td>
                                 <span>${i+1}</span>
                             </td>
@@ -18,7 +18,7 @@ admin = (() => {
                                 <span>${j.userid}</span>
                             </td>
                             <td>
-                                <span>${j.name}</span>
+                                <span><a href="#">${j.name}</a></span>
                             </td>
                              <td>
                                 <span>${j.ssn}</span>
@@ -33,7 +33,12 @@ admin = (() => {
                                 <span>${j.registerDate}</span>
                             </td>
                             
-                        </tr>`).appendTo('#userData')
+                        </tr0.appendTo('#userData')
+                        $(<a>${j.name}</a>)
+                        .appendTo('#user_name')
+                        .click( e =>{
+                        	e.preventDefault()
+                        })alert('') 
 			})
 		})
 	}
