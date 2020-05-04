@@ -5,7 +5,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService {
-@Autowired UserDao userDao;
+	@Autowired
+	UserDao userDao;
 
 	@Override
 	public void register(User user) {
@@ -14,7 +15,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void findAll() {
-userDao.selectAll();		
+		userDao.selectAll();
 	}
 
 	@Override
@@ -24,18 +25,12 @@ userDao.selectAll();
 
 	@Override
 	public void modify(User user) {
-userDao.update(user);		
+		userDao.update(user);
 	}
 
 	@Override
 	public void remove(User user) {
-userDao.remove(user);		
+		userDao.remove(user);
 	}
-
-
-
-
-
-
 
 }
