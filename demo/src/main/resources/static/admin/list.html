@@ -36,7 +36,6 @@ $('#content').addClass('border_black')
 $('#member_list').addClass('border_black').css({'width':'100%'})
 $('#member_list tr').addClass('border_black width_full')
 $.getJSON('/user/list', d=> {
-	alert('리스트 수: '+d.length)
 	let list = ''
 		for(let i=0;i< d.length;i++){
 			list += '<tr><td>'+(i+1)+'</td><td>'+d[i].userid+'</td><td>'

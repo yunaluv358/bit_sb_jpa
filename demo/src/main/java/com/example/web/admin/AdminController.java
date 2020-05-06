@@ -2,6 +2,9 @@ package com.example.web.admin;
 
 import java.util.List;
 
+import javax.annotation.processing.Messager;
+
+import org.apache.coyote.http11.Http11AprProtocol;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,38 +19,39 @@ import com.example.web.util.Messenger;
 
 @RestController
 @RequestMapping("/admins")
-public class AdminController {
-	@Autowired
-	AdminService adminService;
-
+public class AdminController{
+	
+	@Autowired AdminService adminService;
+	@Autowired Admin admin;
+	
 	@PostMapping("")
 	public Messenger post(@RequestBody Admin admin) {
+		System.out.println("1. AdminController post .."+admin);
 		adminService.register(admin);
-		System.out.println(admin.toString());
+		System.out.println("5. AdminController post ");
 		return Messenger.SUCCESS;
 	}
-
 	@GetMapping("")
-	public List<Admin> list() {
-		
+	public List<Admin> list(){
 		return adminService.findAll();
 	}
-	
-	@GetMapping("/{employNumber}")
+	@GetMapping("/{employNumber}")  
 	public Admin detail(@PathVariable String employNumber) {
+		admin.setEmployNumber(employNumber);
 		return adminService.findOne(employNumber);
 	}
-	
 	@PutMapping("/{employNumber}")
 	public Messenger put(@RequestBody Admin admin) {
 		adminService.modify(admin);
 		return Messenger.SUCCESS;
 	}
-	
 	@DeleteMapping("/{employNumber}")
 	public Messenger delete(@RequestBody Admin admin) {
 		adminService.remove(admin);
-		return null;
+		return Messenger.SUCCESS;
 	}
+	
 }
+
+
 

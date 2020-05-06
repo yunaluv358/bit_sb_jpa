@@ -1,38 +1,40 @@
 package com.example.web.admin;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AdminServiceImpl implements AdminService {
-	@Autowired
-	AdminDao adminDao;
-
+public class AdminServiceImpl implements AdminService{
+	@Autowired AdminDao adminDao;
+	
+	
 	@Override
 	public void register(Admin admin) {
+		/*
+		 employNumber, passwd ,name , position, profile, email, phoneNumber, registerDate;
+		 * */
+		System.out.println("2. AdminServiceImpl register "+admin);
 		admin.setEmployNumber(createEmployNumber());
-		admin.setPassword("1");
+		admin.setPasswd("1");
 		admin.setRegisterDate(createCurrentDate());
 		adminDao.insert(admin);
 	}
 
 	private String createCurrentDate() {
-		return new SimpleDateFormat("yyyy-MM-dd", Locale.KOREA).format(new Date());
+		return new SimpleDateFormat("yyyy-MM-dd").format(new Date());
 	}
 
 	private String createEmployNumber() {
 		String startNum = "";
-		for (int i = 0; i < 4; i++) {
-			startNum += (int) (Math.random() * 10);
+		for(int i=0;i < 4;i++) {
+			startNum += String.valueOf((int)(Math.random()*10));
 		}
-
 		return startNum;
-
 	}
 
 	@Override
@@ -48,11 +50,16 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public void modify(Admin admin) {
 		adminDao.update(admin);
+		
 	}
 
 	@Override
 	public void remove(Admin admin) {
 		adminDao.delete(admin);
+		
 	}
-
+	
+	
 }
+
+
