@@ -32,7 +32,6 @@ user = (()=>{
 		     	
 		     })
 		     $('#access_a').click(e=>{
-		    	 alert('접소오옥')
 		    	 e.preventDefault()
 		    	 $('#content').empty()
 		    	 $('#content').html(adminVue.login())
@@ -43,7 +42,7 @@ user = (()=>{
 		    		 e.preventDefault()
 		    		 location.href = "/admin"
 		    		 /*$.ajax({
-		    			 url : `admin/login`,
+		    			 url : ``,
 		    			 type : `post`,
 		    			 data : JSON.stringify({
 		    				 

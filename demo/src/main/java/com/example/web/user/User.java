@@ -1,16 +1,14 @@
 package com.example.web.user;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter @Setter
 public class User {
-	private String  userid,passwd,name,ssn, addr, 
-			profile, email, phoneNumber, registerDate;
+	String name, userid, password, ssn, address, email, phoneNumber, profile, registerDate;
+	
 	@Override
 	public String toString() {
-		return String.format("%s,%s,%s,%s,%s", userid,passwd,name,ssn, addr);
+		return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s", name, userid, password, ssn, address, email, phoneNumber, profile, registerDate);
 	}
 }

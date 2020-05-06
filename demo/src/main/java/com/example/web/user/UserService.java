@@ -2,21 +2,15 @@ package com.example.web.user;
 
 import java.util.List;
 
-
 public interface UserService {
 
-	public void register(User user);
+	public void signUp(User user);
 
-	public void findAll();
+	public List<User> fineAll();
 
-	public void findOne(String employNumber);
+	public User findOne(String name);
 
 	public void modify(User user);
 
 	public void remove(User user);
-
-
-
-
-	
 }

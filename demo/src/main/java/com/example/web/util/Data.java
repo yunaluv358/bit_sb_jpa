@@ -3,23 +3,43 @@ package com.example.web.util;
 import java.io.File;
 
 public enum Data {
-	USER_PATH, ADMIN_PATH, CSV, LIST;
-	
+	DATA_PATH,CSV, ADMIN_LIST, USER_LIST, LOST_LIST;
+	//C:\Users\bit\git\repository4\demo\src\main\resources\static\resources
 	@Override
 	public String toString() {
 		String returnValue = "";
 		switch(this) {
-		case USER_PATH: returnValue = "C:"+File.separator+"User"+File.separator+"bit"+File.separator
-							+"spring-workspace"+File.separator+"occamsrazor"+File.separator
-							+"src"+File.separator+"main"+File.separator+"resources"+File.separator+"static"
-							+File.separator+"user"+File.separator; break;
-		case ADMIN_PATH: returnValue = "C:"+File.separator+"Users"+File.separator+"bit"+File.separator+
-				"sts-workspace"+File.separator+"demo"+File.separator+"src"+File.separator+"main"+File.separator+
-				"resources"+File.separator+"static"+File.separator+"admin"+File.separator; break;
+		case DATA_PATH:
+			returnValue = "C:"+File.separator+"Users" +
+					File.separator + "bit" + 
+					File.separator + "git" + 
+					File.separator + "repository4" + 
+					File.separator + "demo" + 
+					File.separator + "src" + 
+					File.separator + "main" + 
+					File.separator + "resources" + 
+					File.separator + "static" + 
+					File.separator + "resources" + 
+					File.separator + "file" +
+					File.separator;
+			break;
+
+		case CSV:
+			returnValue = ".csv";
+			break;
+			
+		case ADMIN_LIST:
+			returnValue = "admin_list";
+			break;
 		
-		//C:\Users\bit\sts-workspace\demo\src\main\resources\static\admin
-		case CSV: returnValue = ".csv";break;
-		case LIST: returnValue = "list"; break;
+		case USER_LIST:
+			returnValue = "user_list";
+			break;
+		
+		case LOST_LIST:
+			returnValue = "lost_list";
+			break;
+			
 		default:
 			break;
 		}

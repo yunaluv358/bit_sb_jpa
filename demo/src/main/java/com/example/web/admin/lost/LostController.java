@@ -1,4 +1,4 @@
-package com.example.web.user;
+package com.example.web.admin.lost;
 
 import java.util.List;
 
@@ -14,38 +14,37 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.web.util.Messenger;
 
+@RequestMapping("/losts")
 @RestController
-@RequestMapping("/users")
-public class UserController {
+public class LostController {
 
-	@Autowired UserService userService;
+	@Autowired LostService lostService;
 	
 	@PostMapping("")
-	public Messenger post(@RequestBody User user) {
-		userService.signUp(user);
+	public Messenger post(@RequestBody Lost lost) {
+		lostService.register(lost);
 		return Messenger.SUCCESS;
 	}
 	
 	@GetMapping("")
-	public List<User> list(){
-		return userService.fineAll();
+	public List<Lost> list(){
+		return lostService.findAll();
 	}
 	
-	@GetMapping("/{name}")
-	public User detail(@PathVariable String name) {
-		return userService.findOne(name);
+	@GetMapping("/{lostID}")
+	public Lost detail(@PathVariable String lostID) {
+		return lostService.findOne(lostID);
 	}
 	
-	@PutMapping("/{userid}")
-	public Messenger put(@RequestBody User user) {
-		userService.modify(user);
+	@PutMapping("")
+	public Messenger put(@RequestBody Lost lost) {
+		lostService.modify(lost);
 		return Messenger.SUCCESS;
 	}
 	
-	@DeleteMapping("/{userid}")
-	public Messenger delete(@RequestBody User user) {
-		userService.remove(user);
+	@DeleteMapping("")
+	public Messenger delete(@RequestBody Lost lost) {
+		lostService.remove(lost);
 		return Messenger.SUCCESS;
 	}
-	
 }

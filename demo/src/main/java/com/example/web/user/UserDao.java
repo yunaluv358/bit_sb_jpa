@@ -1,15 +1,17 @@
 package com.example.web.user;
 
+import java.util.List;
+
 public interface UserDao {
 
 	public void insert(User user);
 
-	public void selectAll();
+	public List<User> selectAll();
 
-	public void selectOne(String employNumber);
+	public User selectOne(String name);
 
 	public void update(User user);
 
-	public void remove(User user);
+	public void delete(User user);
 
 }

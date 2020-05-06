@@ -1,26 +1,27 @@
 package com.example.web.user;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService {
-	@Autowired
-	UserDao userDao;
 
+	@Autowired UserDao userDao;
+	
 	@Override
-	public void register(User user) {
+	public void signUp(User user) {
 		userDao.insert(user);
 	}
 
 	@Override
-	public void findAll() {
-		userDao.selectAll();
+	public List<User> fineAll() {
+		return userDao.selectAll();
 	}
 
 	@Override
-	public void findOne(String employNumber) {
-		userDao.selectOne(employNumber);
+	public User findOne(String name) {
+		return userDao.selectOne(name);
 	}
 
 	@Override
@@ -30,7 +31,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void remove(User user) {
-		userDao.remove(user);
+		userDao.delete(user);
 	}
 
 }
